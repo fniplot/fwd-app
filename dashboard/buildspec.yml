@@ -1,0 +1,16 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 22
+    commands:
+      - node -v
+      - make -C ./dashboard install
+  build:
+    commands:
+      - make -C ./dashboard build
+artifacts:
+  base-directory: dashboard/out
+  files:
+    - '**/*'
