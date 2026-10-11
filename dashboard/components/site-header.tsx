@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import { SidebarTrigger } from "@/components/ui/sidebar"
+import { IconBrandGithub } from "@tabler/icons-react"
 
 export function SiteHeader() {
   return (
@@ -25,7 +26,7 @@ export function SiteHeader() {
                 target="_blank"
                 className="dark:text-foreground"
               >
-                GitHub
+                <IconBrandGithub />
               </a>
             }
           />
