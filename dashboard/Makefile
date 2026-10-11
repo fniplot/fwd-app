@@ -13,3 +13,11 @@ start: build
 # 検証環境用の S3 バケットにアップロードする
 dev-upload:
 	@aws s3 sync out/ s3://fwd-dev-app --delete
+
+# 検証環境用の S3 バケットにアップロードする
+prod-upload:
+	@aws s3 sync out/ s3://fwd-prod-app --delete
+
+# 依存関係のインストール
+install:
+	@npm ci
