@@ -1,0 +1,53 @@
+name: S3 アップロード / AWS CodePipeline トリガー
+
+on:
+  # GitHub Actions のワークフローを
+  # 手動で実行するためのトリガー
+  workflow_dispatch:
+  # Pull Request がマージされたときに
+  # トリガーされるように設定
+  pull_request:
+    types:
+      - closed
+    branches:
+      - main
+
+# AWS の IAM ロールを利用するための設定
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy_s3_and_trigger_pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display GitHub Actions variables
+        run: |
+          BRANCH="${{ github.ref_name }}"
+
+      # 手動で選択したブランチからソースコードをチェックアウトアウトします。
+      # GitHub の Run workfolow から選択できます。
+      - name: Checkout deploy repository
+        uses: actions/checkout@v6
+
+      # AWS の IAM ロールを利用するための設定
+      - uses: aws-actions/configure-aws-credentials@v6
+        with:
+          role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/fwd-github-deploy
+          aws-region: ap-northeast-1
+
+      # ソースコードを ZIP ファイルに圧縮
+      - name: Compress deploy code into ZIP file
+        working-directory: . # 明示的にカレントディレクトリを指定
+        run: |
+          zip -r archive.zip . -x "*.git*"
+
+      # S3 バケットに ZIP ファイルをアップロードします。
+      - name: Upload to production S3
+        env:
+          S3_URI_UPLOAD_DEPLOY_FOLDER: ${{ vars.S3_URI_UPLOAD_DEPLOY_FOLDER }}
+        working-directory: .
+        run: |
+          echo "Upload to development S3"
+          aws s3 cp ./archive.zip $S3_URI_UPLOAD_DEPLOY_FOLDER
+          echo "Upload completed successfully"
