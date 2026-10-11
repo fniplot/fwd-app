@@ -6,9 +6,12 @@ on:
   workflow_dispatch:
   # Pull Request がマージされたときに
   # トリガーされるように設定
-  pull_request:
-    types:
-      - closed
+  # pull_request:
+  #   types:
+  #     - closed
+  #   branches:
+  #     - main
+  push:
     branches:
       - main
 
