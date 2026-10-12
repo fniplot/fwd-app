@@ -71,12 +71,12 @@ const data = {
   project: [
     {
       name: "開発者",
-      url: "about",
+      url: "/about",
       icon: IconCode,
     },
     {
       name: "運用方針",
-      url: "policy",
+      url: "/policy",
       icon: IconShieldCheck,
     }
   ],
