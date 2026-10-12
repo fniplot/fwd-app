@@ -1,53 +1,38 @@
 "use client"
 
 import {
-  IconDots,
-  IconFolder,
-  IconShare3,
-  IconTrash,
   type Icon,
 } from "@tabler/icons-react"
-
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
 import {
   SidebarGroup,
   SidebarGroupLabel,
   SidebarMenu,
-  SidebarMenuAction,
   SidebarMenuButton,
   SidebarMenuItem,
-  useSidebar,
 } from "@/components/ui/sidebar"
+import Link from "next/link"
 
 export function NavProject({
   items,
 }: {
   items: {
-    name: string
+    title: string
     url: string
     icon: Icon
   }[]
 }) {
-  const { isMobile } = useSidebar()
-
   return (
     <SidebarGroup className="group-data-[collapsible=icon]:hidden">
       <SidebarGroupLabel>プロジェクト</SidebarGroupLabel>
       <SidebarMenu>
         {items.map((item) => (
-          <SidebarMenuItem key={item.name}>
-            <SidebarMenuButton render={
-              <a href={item.url}>
-                <item.icon />
-                <span>{item.name}</span>
-              </a>
-            }>
+          <SidebarMenuItem key={item.title}>
+            <SidebarMenuButton
+              tooltip={item.title}
+              render={<Link href={item.url}></Link>}
+            >
+              {item.icon && <item.icon />}
+                <span>{item.title}</span>
             </SidebarMenuButton>
           </SidebarMenuItem>
         ))}
