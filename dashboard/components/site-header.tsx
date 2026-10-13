@@ -1,7 +1,6 @@
-import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import { SidebarTrigger } from "@/components/ui/sidebar"
-import { IconBrandGithub } from "@tabler/icons-react"
+import { IconBrandGithub, IconBrandX } from "@tabler/icons-react"
 
 export function SiteHeader() {
   return (
@@ -12,24 +11,25 @@ export function SiteHeader() {
           orientation="vertical"
           className="mx-2 data-[orientation=vertical]:h-4"
         />
-        {/* <h1 className="text-base font-medium">毎週開催されるバニラ防衛チャレンジ</h1> */}
-        <div className="ml-auto flex items-center gap-2">
-          <Button
-            variant="ghost"
-            size="sm"
-            className="hidden sm:flex"
-            nativeButton={false}
-            render={
-              <a
-                href="https://github.com/fniplot/fwd-app"
-                rel="noopener noreferrer"
-                target="_blank"
-                className="dark:text-foreground"
-              >
-                <IconBrandGithub />
-              </a>
-            }
-          />
+        <div className="ml-auto flex items-center gap-3">
+          <a
+            href="https://x.com/fwdfniplot"
+            rel="noopener noreferrer"
+            target="_blank"
+            className="dark:text-foreground"
+            aria-label="XでFWDを見る"
+          >
+            <IconBrandX aria-hidden="true" />
+          </a>
+          <a
+            href="https://github.com/fniplot/fwd-app"
+            rel="noopener noreferrer"
+            target="_blank"
+            className="dark:text-foreground"
+            aria-label="GitHubでFWDを見る"
+          >
+            <IconBrandGithub  aria-hidden="true" />
+          </a>
         </div>
       </div>
     </header>
