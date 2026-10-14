@@ -90,7 +90,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <SidebarMenuItem>
             <SidebarMenuButton
               render={
-                <a href="#">
+                <a href="/">
                   <IconDashboard className="size-5!" />
                   <div className="flex flex-col gap-0.5 leading-none">
                     <span className="text-base font-semibold">Factorio Weekly Defense</span>
