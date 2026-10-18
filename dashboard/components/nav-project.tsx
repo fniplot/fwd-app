@@ -32,7 +32,7 @@ export function NavProject({
               render={<Link href={item.url}></Link>}
             >
               {item.icon && <item.icon />}
-                <span>{item.title}</span>
+              <span>{item.title}</span>
             </SidebarMenuButton>
           </SidebarMenuItem>
         ))}
