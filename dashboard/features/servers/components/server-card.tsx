@@ -19,10 +19,10 @@ type ServerCardProps = React.ComponentProps<typeof Card> & {
   server: Server;
 };
 
-export function ServerCard({ server, ...props }: ServerCardProps) {
+export function ServerCard({ server, className, ...props }: ServerCardProps) {
   const [open, setOpen] = useState(false);
   return (
-    <Card className={cn("w-[380px]")} {...props}>
+    <Card {...props} className={cn("w-full sm:w-[380px]", className)}>
       <CardHeader>
         <CardTitle className="flex w-full items-center justify-between gap-3">
           <span>{server.name}</span>

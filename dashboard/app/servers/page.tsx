@@ -16,7 +16,7 @@ export default function Page() {
       <AppSidebar variant="inset" />
       <SidebarInset>
         <SiteHeader />
-        <div className="flex flex-1 flex-col gap-4 p-10">
+        <div className="flex flex-1 flex-col gap-4 p-4 sm:p-10">
           <div className="space-y-4">
             <h1 className="text-4xl leading-tight font-bold">
               ゲームサーバー一覧
