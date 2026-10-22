@@ -1,6 +1,6 @@
-import { Separator } from "@/components/ui/separator"
-import { SidebarTrigger } from "@/components/ui/sidebar"
-import { IconBrandGithub, IconBrandX } from "@tabler/icons-react"
+import { Separator } from "@/components/ui/separator";
+import { SidebarTrigger } from "@/components/ui/sidebar";
+import { IconBrandGithub, IconBrandX } from "@tabler/icons-react";
 
 export function SiteHeader() {
   return (
@@ -28,10 +28,10 @@ export function SiteHeader() {
             className="dark:text-foreground"
             aria-label="GitHubでFWDを見る"
           >
-            <IconBrandGithub  aria-hidden="true" />
+            <IconBrandGithub aria-hidden="true" />
           </a>
         </div>
       </div>
     </header>
-  )
+  );
 }

@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import { getServerDetail } from "../api"; 
+import { getServerDetail } from "../api";
 
-import { Check } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Label } from "@/components/ui/label"
+import { Check } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
 import {
   Dialog,
   DialogContent,
@@ -13,37 +13,32 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-  DialogClose
-} from "@/components/ui/dialog"
+  DialogClose,
+} from "@/components/ui/dialog";
 
 type Props = {
   serverId: string;
   open: boolean;
-  onOpenChange: (open: boolean) => void
-}
+  onOpenChange: (open: boolean) => void;
+};
 
-export function ServerDetailDialog({
-  serverId,
-  open,
-  onOpenChange
-}: Props) {
+export function ServerDetailDialog({ serverId, open, onOpenChange }: Props) {
   /** 詳細なサーバー情報を取得 */
   const server = getServerDetail(serverId);
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogTrigger render={
-        <Button className="w-full">
-          <Check /> サーバー情報を見る
-        </Button>
-      }>
-      </DialogTrigger>
+      <DialogTrigger
+        render={
+          <Button className="w-full">
+            <Check /> サーバー情報を見る
+          </Button>
+        }
+      ></DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle>サーバー情報</DialogTitle>
-          <DialogDescription>
-            {server.description}
-          </DialogDescription>
+          <DialogDescription>{server.description}</DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">
@@ -60,12 +55,9 @@ export function ServerDetailDialog({
           </div>
         </div>
         <DialogFooter>
-          <DialogClose render={
-            <Button >閉じる</Button>
-          }
-          ></DialogClose>
+          <DialogClose render={<Button>閉じる</Button>}></DialogClose>
         </DialogFooter>
       </DialogContent>
     </Dialog>
-  )
+  );
 }

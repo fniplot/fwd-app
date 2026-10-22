@@ -1,25 +1,23 @@
-"use client"
+"use client";
 
-import {
-  type Icon,
-} from "@tabler/icons-react"
+import { type Icon } from "@tabler/icons-react";
 import {
   SidebarGroup,
   SidebarGroupLabel,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@/components/ui/sidebar"
-import Link from "next/link"
+} from "@/components/ui/sidebar";
+import Link from "next/link";
 
 export function NavProject({
   items,
 }: {
   items: {
-    title: string
-    url: string
-    icon: Icon
-  }[]
+    title: string;
+    url: string;
+    icon: Icon;
+  }[];
 }) {
   return (
     <SidebarGroup className="group-data-[collapsible=icon]:hidden">
@@ -38,5 +36,5 @@ export function NavProject({
         ))}
       </SidebarMenu>
     </SidebarGroup>
-  )
+  );
 }
