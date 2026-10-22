@@ -1,9 +1,6 @@
-import { AppSidebar } from "@/components/app-sidebar"
-import { SiteHeader } from "@/components/site-header"
-import {
-  SidebarInset,
-  SidebarProvider,
-} from "@/components/ui/sidebar"
+import { AppSidebar } from "@/components/app-sidebar";
+import { SiteHeader } from "@/components/site-header";
+import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 
 export default function Page() {
   return (
@@ -26,7 +23,8 @@ export default function Page() {
               はじめまして、へっぽこ工場長の <b>フニプ</b> と申します。
             </p>
             <p className="leading-7">
-              工場の立ち上げもままならない腕前ですが、Factorio のゲームサーバーを運営したら
+              工場の立ち上げもままならない腕前ですが、Factorio
+              のゲームサーバーを運営したら
             </p>
             <p className="leading-7">
               楽しそうだな、と思い、本サービスを立ち上げました。
@@ -44,5 +42,5 @@ export default function Page() {
         </div>
       </SidebarInset>
     </SidebarProvider>
-  )
+  );
 }
